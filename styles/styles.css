@@ -3,9 +3,136 @@
 /* ===== NEXT WRITE GLOBAL STYLES, THEN USE MEDIA QUERIES FOR LAYOUT/STYLE ADJUSTMENTS ===== */
 /* ===== STARTER CSS BELOW FOR body AND p IS JUST AN EXAMPLE... YOU MAY DELETE IT ===== */
 
-body {
-    background: magenta;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
+/*heading font*/
+@font-face {
+    font-family: 'punk kid';
+    src: local('punk kid')
+}
+
+/*body font*/
+@font-face {
+    font-family: 'ghostwriter';
+    src: local('GHOSTWRITER')
+}
+
+:root{
+  --body-font: ghostwriter; 
+  --heading-font: punk kid; 
+  --background-color: #4d4d4d;  
+  --yellow: #fee742; 
+  --green: #abf808; 
+  --fuchsia: #f807ac; 
+  --violet: #7b46f8; 
+  --black: #000000; 
+  --white: #ffffff; 
+}
+
+
+html{
+    
+}
+
+
+body {
+  min-height: 100vh;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  background-color: var(--background-color); 
+  padding: 7rem; 
+}
+
+
+header {
+  text-align: center;
+}
+
+nav {  
+  padding: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  position: sticky; 
+  background-color: var(--background-color);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row; 
+  flex-wrap: wrap; 
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul a {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: var(--yellow); 
+  text-align: center;
+  font-family: var(--heading-font);
+  letter-spacing: 0.1rem;
+  align-items: baseline;
+}
+
+nav ul a:hover {
+  color: var(--fuchsia); 
+}
+
+#home{
+    font-size: 2.5rem;
+    letter-spacing: 0.25rem
+}
+
+
+.frog-carousel-container{
+list-style: none;
+display: flex;
+gap: 1rem; 
+justify-content: center;
+overflow-x: auto;
+scroll-behavior: smooth;
+anchor-name: --carousel;
+}
+
+.frog-carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.frog-carousel-container::scroll-button(right), .frog-carousel-container::scroll-button(left) {
+    content: ' 🡆';
+    border: none; 
+    background-color: var(--fuchsia); 
+    height: 2rem; 
+    width: 2rem;
+    border-radius: 50%;
+    padding-bottom: 0.1rem;
+    color: var(--white);
+    cursor: pointer; 
+    position: fixed;
+    position-anchor: --carousel;
+    position-area: right center;
+} 
+
+.frog-carousel-container::scroll-button(left) {
+    content: '🡄 ';
+     position-area: left center;
+}
+
+.frog-carousel-images{
+    width: 20rem;
+    height: auto; 
+}
+
 p {
     font-size: 2em;
 }
+
